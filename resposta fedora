@@ -1,0 +1,45 @@
+Alt+Space
+Control+T
+Control+Super+Left   e   Control+Super+Right
+Control+W
+Control+Q
+Control+Shift+I
+ls
+la
+cd 'nome do diretorio'
+cd ~   ou  cd
+mkdir 'nome do diretorio'
+mkdir -p aleatorio/test/novo/so
+mkdir ../novonovo
+touch 'nome do diretorio'.extensao
+echo "texto" > nome do arquivo.extensao
+more 'nome do aruquivo'.extensao
+rm 'nome do arquivo ou diretorio'
+rm -rf 'nome do aquivo'
+curl URL --output 'nome do arquivo'
+wget URL
+rsync -av ~/nome do diretorio origem ~/nome do diretorio destino
+rsync -av ~/nome do diretorio origem/ ~/nome do diretorio destino
+rsync -av --delete ~/nome do diretorio origem/ ~/nome do diretorio destino
+copia arquivos e diretorios em duas maquinas
+A= arquivo e R= recursivo / recursivo quer dizer, fazer copias de todas as subpastas
+permissao de super usuario
+é um pacote de softwares para monitoramento da performance do seu sistema Linux.
+e parte do pacote que faz Monitoramento de Desempenho Linux.
+e um gerenciador de pacotes para distribuições Linux
+No Linux, seu PATH é uma lista de diretórios nos quais o shell procurará arquivos executáveis quando você emitir um comando sem um caminho. 
+permissões no Linux
+-divididas em três grupos:
+1 O usuário que criou o arquivo (usuário dono), 
+2 o grupo dono do arquivo 
+(que pode conter vários usuários), 
+3 e as dos demais usuários que não pertencem ao grupo dono
+podem ser permissoes:
+1 leitura (r, read), permite visualizar
+2 escrita (w, write), permite escrever, alterar
+3 execução (x, execute)
+<A permissão de leitura (r) permite visualizar o conteúdo de um arquivo ou diretório, 
+já a permissão de escrita (w) serve para alterar o conteúdo de um arquivo e diretório.>
+chmod a+x 'nome do arquivo'
+A= arquivo   X=executavel
+osub ~/.bashrc

@@ -1,0 +1,42 @@
+networking
+
+nmcli - (mostra o IP) é uma ferramenta que permite o gerenciamento do NetworkManager a partir da linha de comando.
+listar wifi - nmcli device wifi list
+conectar ao wifi com senha - nmcli device wifi connect 'user' password <password>
+
+Ping - (latência é o termo tecnicamente mais correto) significa o tempo que leva para um 
+pequeno conjunto de dados ser transmitido de seu dispositivo para um servidor na Internet e 
+de volta para seu dispositivo novamente
+
+testar o ping - digite ping localhost
+para ver o ping de outra maquina e so pegar o IP da mesma
+
+sudo systemctl start sshd.service - dar permissao de outras pessoas fazerem SSH em minha maquina
+
+SSH - é um protocolo de rede que permite que os administradores de um servidor acessem um computador remoto
+
+chave publica - more joel.rocha.pub  
+chave privada - more joel.rocha
+
+criar um SSH publica e privada -  ssh-keygen -t rsa -C "<YOUR_EMAIL_ADDRESS>".
+mover a ssh - mv joe_bloggs ~/.ssh/id_rsa
+
+SFTP - SSH File Transfer Protocol
+Na computação, o SSH File Transfer Protocol ou SFTP é um protocolo de transferência de arquivos e 
+de manipulação funcional. É tipicamente utilizado com o protocolo de segurança SSH-2
+
+Telnet - é uma maneira rápida de verificar se você pode se comunicar com outro computador em uma porta específica.
+
+Systemctl - É usado para agrupar unidades e como pontos de sincronização bem conhecidos durante a inicialização.
+
+Docker - (sao diferentes da maquina virtual) Docker é uma ferramenta que permite aos desenvolvedores, administradores de 
+sistemas, etc., implantar facilmente seus aplicativos em uma caixa de proteção 
+(chamados de contêineres ) para serem executados no sistema operacional host, 
+ou seja, Linux. O principal benefício do Docker é que ele permite aos usuários 
+empacotar um aplicativo com todas as suas dependências em uma unidade padronizada para 
+desenvolvimento de software.
+obs: no Docker posso colocar varios conteiners que podem executar imagens pelos quais posso subir um portal por exemplo
+
+docker pull - busca a imagem e salva na maquina
+docker run - executa um conteiners do Docker com base na imagem
+

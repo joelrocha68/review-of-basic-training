@@ -1,0 +1,29 @@
+git init     g init
+git status   g st
+git add      g add
+git add .
+git commit nome do arquivo   g ci 
+git commit nome do arquivo -m "minha mensagem de commit"   g cim
+git commit -am "minha mensagem de commit" 
+git rm meu_arquivo.txt      
+git rm -r diretorio      
+git log    
+git log --oneline 
+git log --stat     
+git checkout nome da branch    g co 
+git remote -v
+git push
+git pull
+git fetch
+git clone nome do email
+git branch nome da nova branch     g br
+git checkout -b nome da branch
+git branches
+git merge     g mg
+git rebase    g rb
+git reset --hard      g rsh
+git branch -D nome-da-branch      g db
+git pull request     g pr
+git cherry-pick     g cp
+git commit --amend -m "Minha nova mensagem"   g ciam
+alias gi="gpr info"

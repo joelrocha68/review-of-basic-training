@@ -1,0 +1,22 @@
+Para que serve o Apache?
+O Apache é um programa de computador denominado servidor web. Ele é instalado em nossos servidores para 
+que as páginas da Internet requisitadas através de um browser (Firefox, Internet Explorer, etc) sejam 
+visualizadas por você em sua estação de trabalho.
+
+Como funciona o servidor web Apache?
+O Apache dispõe de um módulo denominado de mod_ssl, o qual adiciona a capacidade do servidor de atender 
+solicitações usando o protocolo HTTPS. Este protocolo faz uso da camada SSL para a criptografia de todos os 
+dados transferidos, proporcionando maior segurança entre o tráfego de dados entre cliente e servidor.
+
+
+d run --rm -it -p 80:80    
+d run - executar o docker 
+--rm   -   apagar depois de acabar a execucao
+-it    -   interativo
+-p     -  mapear a porta que vou acessar no servidor
+
+
+temos dois o apache, que nao pega java e o tomcat, que pega java.
+
+
+d exec -it 1ef0de855560 bash   -  entrar dentro do meu container e executar comandos nele, nesse caso do servidor apache

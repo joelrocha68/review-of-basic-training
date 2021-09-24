@@ -1,0 +1,24 @@
+veja a versao do Docker
+o que e Docker?
+
+
+
+o que e container?
+
+
+busque uma imagem do docker e salve em seu sistema
+crie um container apartir de uma imagem
+remove a imagem depois do termino da execucao
+inicie uma imagem no container
+pare uma imagem do container
+mostre somente os containers em execucao
+liste todos os containers 
+lista as imagens
+mostre os containers com mais detalhes
+execute comandos dentro docker
+exclua a imagem dentro do container
+limpe, exclua o seu container
+liste as imagens no container
+em que site fica hospedado as imagens do docker?
+mapear o container docker
+mostra em qual porta a imagem esta executando

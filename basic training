@@ -1,0 +1,68 @@
+Control+Super+Left - navegar pelos terminais
+
+Control+Shift+I - adicionar varios terminais
+Control+T - adicionar varias abas no terminal
+
+touch - criar arquivos
+mkdir - criar diretorios
+
+echo "ls --full-time" > myls - ja cria um arquivo myls e ecoa essa frase no arquivo
+
+
+rm -rf - r de recursivo,repetido e f de forcar a acao
+
+rm -d - remove diretorios vazios
+
+curl <URL> - mostra o conteudo da URL na tela
+
+curl <URL> --output <nome do arquivo> - baixa o conteudo da URL
+
+rsync -av ~/test ~/hello - adicionar a pasta test dentro da pasta hello
+rsync - faz transferencia de arquivos entre maquinas tambem
+
+rsync -av ~/test/ ~/hello - adicionar os arquivos da pasta test em hello
+
+&& - faz dois comandos em uma linha so
+
+rsync -av --delete ~/test/ ~/hello - sincronizar apagando o que nao ha em comum nas pastas
+(arquivo que tem em um e no outro nao)
+-a, --archive - Este habilita o modo de arquivo.
+-v, --verbose - Este dá a você uma saída visual que mostra o progresso do processo.
+
+
+O SYSSTAT - é um pacote de softwares para monitoramento da performance do seu sistema Linux.
+iostat e parte do pacote que faz Monitoramento de Desempenho Linux.
+
+permissões no Linux
+-divididas em três grupos:
+1 O usuário que criou o arquivo (usuário dono), 
+2 o grupo dono do arquivo 
+(que pode conter vários usuários), 
+3 e as dos demais usuários que não pertencem ao grupo dono
+podem ser permissoes:
+1 leitura (r, read), permite visualizar
+2 escrita (w, write), permite escrever, alterar
+3 execução (x, execute)
+<A permissão de leitura (r) permite visualizar o conteúdo de um arquivo ou diretório, 
+já a permissão de escrita (w) serve para alterar o conteúdo de um arquivo e diretório.>
+
+chmod a+x <nome do arquivo> - tornar executavel - usado para modificar
+as permissões de um arquivo ou diretório.
+arquivo a + x significado é "a" -> todos (proprietário, grupo e outros) 
+
+Control+Alt+K - bloqueia tela
+digitar senha - libera tela
+
+
+
+
+
+
+
+
+
+
+
+
+
+

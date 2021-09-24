@@ -1,0 +1,24 @@
+d --version
+docker é um ambiente de virtualização que contem containers, nesse ambiente podemos hospedar imagens para 
+executar aplicacoes.
+o docker vai virtualizar imagens contidas nos containers. o docker é uma plataforma de containers. tudo pode ser 
+instalado no servidor e é armazenado nos containers.
+o ambiente dos containers vai empacotar um aplicativo com todas as suas dependências em uma unidade 
+padronizada para desenvolvimento de software.Os contêineres são isolados uns dos outros e agrupam seus 
+próprios softwares, bibliotecas e arquivos de configuração.
+docker pull (baixa,puxa a imagem, NAO COLOCA NO CONTAINER)
+docker run (cria um contêiner a partir de uma imagem)
+docker run --rm 
+docker start
+docker stop 'nome do container'
+docker ps 
+docker ps -a
+docker image
+docker system df
+docker run -it
+docker rmi
+docker rm ID do container
+docker images
+docker hub
+docker run --rm -p 80:80 nome da imagem
+docker port nome da imagem

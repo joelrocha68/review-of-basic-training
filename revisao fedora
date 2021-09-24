@@ -1,0 +1,46 @@
+abrir terminal
+criar uma nova aba
+va pra a aba da esquerda e direita do terminal
+fechar uma aba do terminal
+fechar o terminal
+abrir varios terminais - Control+Shift+I
+listar diretorios
+listar diretorios com detalhes
+abrir diretorio
+volte pra raiz
+criar diretorio
+criar varios diretorios de uma vez
+crie varias subpastas e crie uma pasta na subpasta anterior a ultima 
+criar arquivos
+colocar texto no arquivo
+exibir conteudo do arquivo na tela
+remover arquivos
+remover arquivos recursivamente ignorando arquivos inexixtentes
+imprimir conteudo do URL na tela
+download do URL
+sincronize somente um diretorio 
+sicronize somente os arquivos para um diretorio
+sicronize deletando arquivos que nao estao em comum
+o que rsync faz?
+Em rsync -av -  o que significa A e V?  / rsync -av ~/test ~/hello - transfere a pasta       rsync -av ~/test/ ~/hello - transfere os arquivos
+o que e sudo?
+o que e sysstat
+o que e iostat
+o que e dnf?
+o que e PATH?
+explique as permissoes -rwxr-xr-x ?
+
+
+
+
+
+
+
+
+
+
+
+como tornar um arquivo executavel
+explique o que significa a+x ?
+modifique a bashrc criando um alias
+

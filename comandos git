@@ -1,0 +1,29 @@
+Criar novo repositório
+Verificar estado dos arquivos/diretórios
+Adicionar arquivos/diretórios selecionados ao controle de versao
+Adicionar todos os arquivos/diretórios de uma vez no controle de versao
+Comitar um arquivo
+Comitar informando mensagem
+comando para add e comitar na mesma linha
+Remover arquivo
+remover diretorio
+Exibir histórico dos commits
+alternativa do git log detalhes resumidos
+Exibir resumo do histórico dos commits
+mudar pra branch
+Exibir os repositórios remotos
+Enviar arquivos/diretórios para o repositório remoto
+Atualizar repositório local de acordo com o repositório remoto(atualizar os arquivos no branch atual)
+Buscar as alterações, mas não aplica-las no branch atual
+Clonar um repositório remoto já existente
+Criando um novo branch
+Criar uma nova branch e ja ir pra ela
+Listar branches
+unificar um histórico bifurcado em um branch
+combinar uma sequencia de commits para um novo commit de base
+não mude o branch, mas se livre de todas as mudanças locais 
+deletar uma branch local
+faca uma solicitacao de alteracao de arquivos no projeto original
+anexe os commits ao HEAD de trabalho atual 
+Alterando mensagens de commit
+o alias do gi esta em osub ~/.bashrc

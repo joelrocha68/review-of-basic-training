@@ -1,0 +1,257 @@
+o que é Poshi?
+Poshi é uma ferramenta desenvolvida na Liferay que permite aos QA escrever e automatizar testes 
+que simulam o comportamento de um usuário real. 
+
+porque usar testes automatizados?
+pela sua praticidade, em vista de que o site esta sempre atualizando e testes manuais seriam inviaveis.
+
+Para automação de teste de QA, a Liferay optou por construir uma estrutura em cima do Selenium WebDriver. Esta 
+ferramenta é a base do Poshi.
+
+WebDriver é uma das ferramentas de código aberto mais populares para automação de navegador.
+
+Poshi usa o padrão de design “ Objeto de página ”.
+O Modelo de Objeto de Página é um padrão de design amplamente usado no Selenium para aprimorar a manutenção de 
+teste e reduzir a duplicação de código.
+exemplo: Para cada 'página' no aplicativo, criamos um Objeto de Página para fazer referência à 'página'.
+
+Vantagens da Estrutura do Modelo de Objeto de Página:
+Reutilização de código
+Capacidade de manutenção do código - O código muda apenas em Classes de objeto de página quando ocorre uma mudança 
+de IU. 
+Com os objetos de pagina, o QA nao precisa atualizar muitos arquivos de teste diferentes quando ha mudancas no site.
+Em vez disso, um objeto de página é definido em um único local e todos os testes que fazem referencia a esse objeto 
+podem ser atualizados automaticamente.
+
+Ao contrário do modelo de objeto de página tradicional, Poshi separa os localizadores de página das interações de 
+página.
+todos os localizadores de objetos de página são definidos em uma única camada no Poshi. 
+Essa camada única mantém todos os localizadores e contém uma biblioteca de centenas de localizadores de elementos 
+de página DXP que podem ser usados ​​em qualquer caso de teste.
+
+Camadas Poshi:
+testcase
+test/setup/teardown
+macro
+function      e     path
+
+As funções usam uma sintaxe simples para permitir que os testadores combinem os métodos básicos definidos na 
+camada Java para criar funções reutilizáveis ​​para casos de teste, sem necessidade de experiência em Java.
+Os testes normalmente acessarão a camada Java por meio das funções definidas nesta camada.
+Um exemplo real seria a função básica de "Clique" de Poshi
+
+function click {
+         WaitForSPARefresh();
+
+         selenium.waitForVisible();
+
+         selenium.mouseOver();
+
+         selenium.click();
+
+         selenium.assertJavaScriptErrors();
+
+         selenium.assertLiferayErrors();
+
+}
+
+toda essa funcao pode ser chamada no teste simplemente por “Clique” em um teste com um localizador xpath.
+
+A função deve saber em qual elemento ou objeto de página clicar. Este localizador é passado implicitamente para 
+a camada java como uma String.
+
+Click(locator1 = "//button[contains(.,'Close')]");
+
+
+Definindo objetos de página (.path)
+O problema com o uso da função acima é que o localizador está codificado. O xpath aponta para um local 
+específico no HTML.
+o Poshi define e mantém localizadores de objetos de página em um único tipo de arquivo em Poshi, chamado de 
+camada de “caminho” ou path. 
+Esses localizadores são então atribuídos a um nome de propriedade a ser usado ao chamar funções.
+
+Esta camada "path", contém apenas xpaths e nomes para cada “caminho”.
+Caminhos são referenciados em chamadas de função pelo formato: PathFileName#PATH_NAME
+
+esse path pode ser chamado com Click(locator1 = "Button#CLOSE");
+<tr>
+	<td>CLOSE</td>
+	<td>//button[contains(.,'Close')]</td>
+	<td></td>
+</tr>
+
+
+No Liferay, optamos por usar apenas o localizador xpath para encontrar elementos.
+varios tipos de localizadores xpath pra encontrar o caminho das funcoes:
+
+//nome do elemento[contains(@nome do atributo, "valor do atributo")] 
+
+identicando elementos com css e xpath                                                                                   
+//* - ver todos os elementos da pagina                                                                                                                                           
+[ - identificar um elemento pelo seu atributo e valor      exemplo em xpath  //a[@data-target="signupbox"]                                                 
+contem -ex: //a[contains(@data-target, "signup")]                                                                                                       
+procurar texto - //a[text()="ok joel"]
+
+//a[contains(text(),'Add')]
+//button[contains(@type,'submit')
+//span[contains(.,'Add Action')]
+xpath=(//button[contains(@class,'add-row')])[last()]
+//a[contains(@id,'addNodeButton')
+//*[contains(@class,'btn')]
+//button[contains(.,'Cancel Checkout')]
+//button[contains(.,'Continue')]
+//button[contains(.,'Delete Certificate')]
+
+temos duas regras principais para os QAs
+1 criar caminhos que sejam específicos o suficiente para encontrar o objeto certo,
+2 mas tambem gerais o suficiente para que sejam reutilizáveis ​​em todo o projeto em teste.
+
+O objetivo disso é criar uma biblioteca de objetos de teste para o produto que torne os testes mais 
+fáceis de ler e manter.
+
+
+macro 
+macro é onde as funções são chamadas e as interações do usuário definidas.
+As macros são compostas principalmente de chamadas de função em caminhos existentes para simular o comportamento 
+de um usuário (por exemplo, Login, Adicionar um Blog, etc.)
+
+exemplo de uma macro que faz sinalizacao de entradas de blogs em uma página.
+
+macro flagPG {
+		var key_entryTitle = "${entryTitle}";
+
+		AssertElementPresent(locator1 = "BlogsEntry#FLAG_LINK");
+
+		Click(locator1 = "BlogsEntry#FLAG_LINK");
+
+		AssertElementPresent.assertVisible(locator1 = "BlogsEntry#FLAG_MODAL");
+
+		AssertTextEquals(
+			locator1 = "ReportContent#WARNING",
+			value1 = "You are about to report a violation of our Terms of Use. All reports are strictly confidential.");
+
+		AssertTextEquals(
+			locator1 = "ReportContent#WARNING_TERMS_OF_USE_LINK",
+			value1 = "Terms of Use");
+
+		Select(
+			locator1 = "ReportContent#REASON_SELECT",
+			value1 = "${flagReason}");
+
+		SelectFrame(locator1 = "ItemSelector#ITEM_SELECTOR_MODAL_FOOTER");
+
+		AssertClick(
+			locator1 = "ReportContent#REPORT_BUTTON",
+			value1 = "Report");
+
+		AssertTextEquals.assertPartialText(
+			locator1 = "ReportContent#SUCCESS_MESSAGE",
+			value1 = "Although we cannot disclose our final decision, we do review every report and appreciate your effort to make sure ${siteName} is a safe environment for everyone.");
+
+		Click(locator1 = "Button#CLOSE");
+	}
+
+
+PG significa Página 
+CP significa Painel de Controle.
+deletePG indica que o artigo da Base de Conhecimento foi excluído por meio de um widget em uma página.
+deleteCP indica que o Artigo da Base de Conhecimento foi excluído no Painel de Controle (página Admin).
+
+comportamentos dos scripts
+As interações do objeto de página são definidas na camada de “função”, 
+os localizadores de objeto de página são definidos na camada “path”. 
+As ações e localizadores são reunidos na camada “macro”.
+
+
+Escrevendo casos de teste (.testcase)
+agora que tudo foi ajeitado, as macros, path e funcoes, podemos fazer um teste.
+Um caso de teste é principalmente uma combinação de chamadas de macro com quaisquer valores de variáveis ​​definidos.
+
+exemplo
+Este exemplo mostra parte de um caso de teste em que o usuário está navegando para uma página, 
+navegando para uma entrada de blog específica e, em seguida, sinalizando a entrada como “Spam”.
+
+ @priority = "4"
+      test UserFlagsBlogEntry {
+              ...
+              Navigator.gotoPage(pageName = "Blogs Page");
+
+              BlogsNavigator.gotoEntryPG(
+                      entryContent = "Blogs Entry Content",
+                      entryTitle = "Blogs Entry Title");
+
+              BlogsEntry.flagPG(
+                      flagReason = "Spam",
+                      siteName = "Test Site",
+                      userEmailAddress = "userea@liferay.com");
+              ...
+      }
+
+
+como conseguimos executar um teste poshi?
+Os scripts que manipulam o teste e a configuração do servidor são encontrados nos scripts do Apache Ant 
+no diretório raiz de origem do Portal.
+
+exemplo:
+ant -f build-test.xml run-selenium-test -Dtest.class=PortalSmoke#Smoke
+
+O Ant está usando o arquivo “build-test.xml”, o destino “run-selenium-test” e definindo a propriedade test.class 
+como o nome do teste. O nome do teste Poshi segue o formato: TestCaseFileName#TestName. Nesse caso, o arquivo é 
+PortalSmoke.testcasee o nome do teste nesse arquivo é “smoke”.
+
+
+
+No exemplo abaixo, que é de uma versão mais antiga do BaseWebDriverImpl, o comando assertElementPresent verifica 
+se algum elemento da web pode ser encontrado usando o localizador fornecido pelo usuário e lança uma Exceção 
+fazendo com que o teste falhe se não puder ser encontrado.
+
+@Override
+public boolean isElementNotPresent(String locator) {
+  return !isElementPresent(locator);
+}
+
+@Override
+public boolean isElementPresent(String locator) {
+  List<WebElement> webElements = getWebElements(locator);
+
+  return !webElements.isEmpty();
+}
+
+
+
+
+
+
+Considere um exemplo em que gostaríamos de alternar um switch e fazer isso requer o seguinte: * Aguarde a 
+atualização do SPA na página; * Aguarde até que o elemento esteja presente na página; * Passe o mouse sobre o 
+elemento; * Verifique se a alternância já foi habilitada / marcada e, caso não esteja, ative / verifique a 
+alternância; * Afirme que a alternância habilitada / marcada está presente na página; e, * Verifique se há 
+JavaScript ou LiferayErrors
+
+Em vez de chamar todos esses métodos em um teste, uma função agrupa tudo em um pequeno pacote organizado, 
+como na função toggleSwitch abaixo.
+
+function toggleSwitch{
+  WaitForSPARefresh();
+
+  selenium.waitForElementPresent();
+
+  selenium.mouseOver();
+
+  if (selenium.isNotChecked()) {
+    selenium.clickAt();
+  }
+
+  AssertElementPresent();
+
+  selenium.assertJavaScriptErrors();
+
+  selenium.assertLiferayErrors();
+}
+
+
+
+path 
+Um path é um elemento em uma página do Liferay com o qual um teste irá interagir.S
+Um elemento pode ser um botão, campo de texto, link, imagem, parágrafo ou qualquer coisa.
+

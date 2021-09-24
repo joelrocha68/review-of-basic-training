@@ -1,0 +1,106 @@
+Primeiros passos e comandos no git
+
+Para iniciar o Git em um projeto, é preciso acessá-lo pela linha de comando e digitar git init. Uma pasta “.git” 
+será criada junta aos outros arquivos de seu projeto, e irá monitora-los.
+
+Um conceito importante para a melhor visualização do funcionamento do Git é sobre os estados. Localmente 
+(em seu próprio computador), um arquivo pode estar em 3 estados: modified (modificado), staged (preparando) 
+ou committed (commitado ou “comprometido”). Assim, um fluxo de trabalho básico Git é:
+
+Um arquivo é modificado no seu diretório/pasta (estado modified), porém ainda não foi adicionado à lista de 
+alterações do próximo commit.
+Utilizando o comando git add , o arquivo entra em estado staged.
+Utilizando o comando git commit , move-se os arquivos para o estado commited.
+como se fosse editar(no meu diretorio)/preparar(na area de staging)/fazer commit(alteracoes confirmadas)
+
+Nessa etapa, já é possível enviar os arquivos em estado commited para um repositório remoto, como o Github por 
+exemplo. Lá, você criará uma conta gratuita e criará um repositório. Com o comando git push, enviará os arquivos 
+do local (seu computador) para o remoto (servidor do Github). Assim, poderá compartilhar esse repositório remoto 
+para sua equipe que, utilizando os comandos git clone e git pull, terão uma cópia do projeto no computador local 
+deles (eles também devem ter o Git instalado em seus computadores).
+
+entenda
+
+git pull(puxar) upstream(liferay principal) master - pegar atualizacoes do fork da master pra minha master na maquina.
+exemplo: eu forquei o liferay-portal e quero atualizar a minha maquina porque houve atualizacoes.
+
+git push(empurrar) origin(meu fork da liferay na nuvem) master - enviar modificacoes pra meu fork na nuvem(origin) do que esta no meu repositorio local.
+mandar da minha maquina local pra meu repositorio git na nuvem.
+
+git remote add origin <servidor> - conectar seu repositório local a um servidor remoto
+
+git pull - atualizar seu repositório local com a mais nova versão do seu repositorio remoto
+
+git merge <branch> - fazer merge de um outro branch ao seu branch ativo (ex. master)
+
+git fetch origin
+git reset --hard origin/master - remover todas as alterações e commits locais, recupere o histórico mais recente 
+do servidor e aponte para seu branch master local desta forma
+
+git clean -  exclui todos os arquivos nao rastreados.
+
+g remote -v - ver seu repositorio remoto
+
+importante- 
+quando eu crio um novo branch, essa branch vai assumir o estado atual que esta agora no meu codigo e vai comecar um 
+novo historico a partir dai.
+
+git diff --name-only   -   mostra qual arquivo foi modificada
+
+git reflog   -  é um mecanismo para registrar quando a ponta dos ramos são atualizados . Este comando serve para 
+gerenciar as informações nele registradas. Basicamente, toda ação que você executa dentro do Git onde os dados são 
+armazenados, você pode encontrá-los dentro do reflog
+
+git checkout HEAD -- 'nome do arquivo'    -   volta ao estado anterior o arquivo modificado.
+
+git checkout e pra voltar pra uma versao especifica, seja ela uma versao de uma branch, uma versao de um arquivo 
+especifico ou a versao de um arquivo especifico.
+
+git rebase -i HEAD~3   -  rebase -i = e um rebase interativo, editar e ver as modificacoes no commit.
+HEAD = a branch atual que estou       ~3 = quantos commits quero editar, os ultimos tres commits, nao mostra o primeiro.
+dentro do VI posso interagir com varios comandos, sao eles:
+pick - meu commit(normal)
+reword - use o commit e edite a mensagem
+edit - use o commit mas pare para alterar com comandos
+squash - combinar mais de um commit em um commit só (que irá uni-lo ao commit anterior.)
+fixup - der "squash", mas descarte a mensagem de log deste commit
+exec - execute o comando (o resto da linha) usando o shell
+break - pare aqui (continue rebase mais tarde com 'git rebase --continue')
+drop - remove o commit
+label - rotular HEAD atual com um nome
+reset - redefinir HEAD para um rótulo
+merge - criar um commit de mesclagem usando o commit de mesclagem original
+
+git stash - salvar alteracoes
+git stash apply - voltar as alteracoes que salvei quando dei git stash
+
+diferencas git reset e git revert
+
+git reset - volta ao commit inicial mas perde as alteracoes feitas.
+git revert(salva a sexta feira) - volta ao commit anterior mas ainda tenho acesso ao commit que eu fiz 
+errado quando dou git log
+salva a sexta porque posso volta ao commit anterior e colocar no ar e na segunda corrigir o que fiz de errado na sexta,
+dando fit log vou ver os dois commits e o primeiro vai esta com "revert de"
+
+se vc nao quer editar o git revert faca
+git revert --no-edit hash
+
+
+
+remover uma branch no repositorio remoto
+git push origin  :nome da branch
+remover uma branch no repositorio local
+git branch -D nome da branch
+
+
+quando der um git rebase master em alguma branch, e ter algum conflito, tenho que resolver esse conflito manualmente.
+dou um code . e dentro do arquivo escolho se quero aceita o verde da branch ou o azul da master. 
+Depois de dou um git add . e depois git rebase --continue. nao preciso dar git rebase master.
+
+git pull origin master - do remoto pro local (sempre dar um pull primeiro pra tudo ficar atualizado)
+git push origin master - do local pro remoto
+
+git clone link do repositorio - damos isso quando o repositorio e nosso
+fork - fazemos isso quando o repositorio e de outar pessoa e so depois dou um git clone 
+
+git branch -M "main" - renomear uma branch, nesse caso a master foi renomeada pra main.

@@ -1,0 +1,16 @@
+liste as redes wifi
+conecte a uma rede wifi
+veja seu IP e a rede que esta conectado
+veja seu PING
+veja o PING do seu vizinho
+inicie o daemon ssh para outras pessoas terem permissao pra entrar na sua maquina
+conecte via ssh a outra maquina
+saia da conexao remota da maquina
+conecte via ssh a voce mesmo
+criar uma chave ssh    
+mostre a sua chave SSH
+conecte via sftp a maquina do seu vizinho
+envie um arquivo da sua maquina pro seu vizinho via sftp
+baixe um arquivo do seu vizinho pra sua maquina via sftp
+saia do sftp
+veja em qual porta esta sua ssh

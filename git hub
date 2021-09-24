@@ -1,0 +1,203 @@
+videos do youtube 
+https://www.youtube.com/watch?v=UbJLOn1PAKw
+https://www.youtube.com/watch?v=fG6gl9ne6CE
+https://www.youtube.com/watch?v=_mB-TShMDvY&list=RDCMUCySbdH4Tt_l5W4gQJrNqm-Q&start_radio=1&rv=_mB-TShMDvY&t=1036
+https://www.youtube.com/watch?v=iRs6sQOPcvg&list=RDCMUCySbdH4Tt_l5W4gQJrNqm-Q&index=2
+https://www.youtube.com/watch?v=_mB-TShMDvY&list=RDCMUCySbdH4Tt_l5W4gQJrNqm-Q&index=1
+
+------conceitos do git------
+
+git e um programa de controle de versao.
+github e uma plataforma que guarda repositorios criados pelo git.
+
+O que é Git? um Sistema de Controle de Versão
+Apenas poder acessar o código dos outros colaboradores não é suficiente. Precisamos manter o histórico dos nossos 
+arquivos. Mais: das nossas modificações, pois muitas vezes mudamos arquivos em grupo, num movimento único (um commit). 
+essa forma, podemos voltar atrás e recuperar o estado do sistema como ele era ontem, ou no ano passado, e comparar 
+as mudanças, para encontrar bug, para estudar otimizações.
+
+Github:
+O Github tem sim muita relação com o Git. GitHub é uma plataforma para gerenciar seu código e criar um ambiente de 
+colaboração entre devs, utilizando o Git como sistema de controle. Ele vai facilitar o uso do Git, escondendo alguns 
+detalhes mais complicados de setup. É lá que você provavelmente vai ter seu repositório e usar no dia a dia.
+O Github é uma plataforma para gerenciar seu código remoto (na nuvem) utilizando o Git como sistema de versionamento 
+de controle.
+
+As configurações do GIT são armazenadas no arquivo .gitconfig 
+alias do git -  git config --list
+
+O que é um commit no git? (como se fosse uma nova versao do projeto)
+Um Commit é um pacote de alterações feitas no seu projeto. (eu enpacoto todas as minhas modificacoes e coloco tudo 
+em um mesmo envelope, que e chamado de commit.
+depois de comitar, posso subir esses commits pra um repositorio remoto do github. assim vc protege seu projeto 
+se der algum problema em sua maquina.
+Cada commit possui arquivos alterados, autor e uma mensagem de resumo.
+Um commit em um repositório git registra uma fotografia (snapshot) de todos os arquivos no seu diretório.
+
+Cada commit registra um momento de vida do seu projeto. É uma foto (snapshot) daquele instante dos arquivos. 
+Com isso você consegue se referenciar àquele momento do projeto, podendo voltar a ele, analisá-lo, ver as diferenças 
+com um outro momento. Não se esqueça que os commits são feitos no seu repositório local e você precisa dar
+push (empurrá-los) de volta para a origem(local remoto), para que outras pessoas tenham acesso a essas fotos e atualizem-se 
+no tempo de vida.
+
+o que e um Repositório git?
+é um diretório onde os arquivos do seu projeto ficam armazenados. Ele pode ficar em um 
+depósito do GitHub ou em seu computador. Você pode armazenar códigos, imagens, áudios, ou qualquer outra coisa 
+relacionada ao projeto no diretório.
+
+o que sao branch ou ramos no git?
+Eles são simplesmente referências a um commit específico.
+lembre que uma branch ou ramo diz essencialmente "Quero incluir o trabalho deste commit e de todos os seus ancestrais".
+
+
+Ramos no Git são simplesmente referências a um commit específico. diz essencialmente "Quero incluir o 
+trabalho deste commit e de todos os seus ancestrais".
+
+ha duas formas de combinar trabalho entre ramos: merge e rebase
+git merge. O merge do Git cria um commit especial que possui dois pais únicos. Um commit com dois pais 
+essencialmente significa "Quero incluir todo o trabalho deste pai aqui com o daquele outro pai ali, e com o 
+do conjunto de todos os seus ancestrais."
+git rebase. O rebase essencialmente pega um conjunto de commits, "copia" os mesmos, e os despeja em outro lugar.
+
+git clone é um comando que se usa para criar cópias locais de repositório remotos 
+(do GitHub para o seu computador, por exemplo).
+
+-----o repositório remoto principal se chama origin----
+
+daqui em diante em ordem do basic training
+
+git status (Verificar estado dos arquivos/diretórios)
+fornece não apenas os detalhes dos arquivos a serem testados no repositório 
+de trabalho atual, mas também a comparação com a origem de seu branch.
+
+git init (Criar novo repositório)
+cria um novo repositório do Git. Ele pode ser usado para converter um 
+projeto existente e não versionado em um repositório do Git ou inicializar um novo 
+repositório vazio.
+
+git log (Exibir histórico)
+mostra uma lista de todos os commits feitos em um repositório . Você pode 
+ver o hash de cada commit do Git, a mensagem associada a cada commit e mais metadados. 
+Este comando é útil para exibir o histórico de um repositório.
+alternativa do git log ( git log --oneline )
+
+Git add
+adicionar todos os arquivos a um repositorio
+isso faz colocar os meus arquivos dentro do container.
+
+git commit -m(mensagem) -a(amend-reescrever o ultimo commit)
+
+git --amend ou g --a  - com ele reescrevemos o ultimo commit
+Use git commit --amend - esse comando faz vc editar seu commit mais recente, isso alterar sua mensagem de log mais 
+recente.
+
+git show - Para commits, ele mostra a mensagem de log e a diferença textual. Ele também apresenta o commit de 
+mesclagem em um formato especial como produzido por git diff-tree --cc
+git-show (exibir historico e alteracoes dos commits, e quais arquivos estao nele e quais foram adicionados)
+é um utilitário de linha de comando usado para visualizar detalhes 
+expandidos em objetos Git, como blobs, árvores, tags e commits . git-show tem um 
+comportamento específico por tipo de objeto. Tags mostram a mensagem da tag e outros 
+objetos incluídos na tag. As árvores mostram os nomes e o conteúdo dos objetos em uma árvore.
+
+git br - Listar branches
+git branch -v - Listar branches com informações dos últimos commits
+
+g br nome da branch - criar uma branch
+
+g cp - git cherry-pick (escolha seletiva)
+trazer commits para a branch atual, faz uma cópia do commit, o hash e mudado.
+permite que commits arbitrários do Git sejam selecionados por referência e anexados ao HEAD de trabalho atual 
+
+git merge (mesclar,juntar) merge = rebase 
+uma forma de combinar o trabalho de dois ramos diferentes.
+o merge e menos seguro por causa dos conflitos, e mais seguro o rebase
+Para realizar o merge, é necessário estar no branch que deverá receber as alterações.
+usar o rebase vai fazer voce trazer as modificaoes de outras branchs pra sua branch atual
+Merge é o jeito do Git de unificar um histórico bifurcado. O comando git merge permite que você pegue 
+as linhas de desenvolvimento independentes criadas pelo git branch e as integre em uma ramificação única.
+O merge do Git cria um commit especial que possui dois pais únicos. Um commit com dois pais essencialmente 
+significa "Quero incluir todo o trabalho deste pai aqui com o daquele outro pai ali, e com o do conjunto de 
+todos os seus ancestrais."
+os commits de mesclagem são considerados um antipadrão e geralmente evitados.
+
+git rebase -(copia tudo ate as modificacoes) dando g co em uma branch e depois g rebase master eu vou colocar 
+o que esta na master pra minha 
+branch sem tirar meus commits da minha branch.
+A segunda forma de combinar trabalho entre ramos é o rebase. O rebase essencialmente pega um conjunto de commits, 
+"copia" os mesmos, e os despeja em outro lugar.
+vai fazer voce trazer as modificaoes de outras branchs pra sua branch atual.
+é o processo de mover ou combinar uma sequência de commits para um novo commit de base .
+
+g br nome da branch e hash - ja cria uma branch e leva junto um commit.
+
+git rebase -i HEAD~1  - o 'i' e fazer uma rebase interativo, e o HEAD e onde eu vou fazer o rebase, o ~1 e o numero de 
+commits que quero selecionar.
+aqui eu posso fazer modificacoes pelo VI. quando removemos uma linha o commit e removido e historico e reescrito e e 
+como se ele nunca tivesse existido.
+
+git reset - Há duas maneiras principais de desfazer mudanças no Git (ou seja, volta pra versao antiga do meu codigo)-- 
+uma delas é usando git reset, e a outra é usando git revert
+Um uso principal é acabar com o seu trabalho, mas não trocar os commits: git reset --hard significa 
+git reset --hard HEAD, ou seja, não mude o branch, mas se livre de todas as mudanças locais.
+
+g reset 'nome da branch' --hard - dando g co pra uma branch(onde nessa branch tem commits que nao quero mais, nao serve) 
+e depois dando esse comando, eu vou limpar  tudo dessa branch e colocar o que esta em outra branch ou master pra essa
+branch que agora esta limpa.
+
+git fetch Baixa os commits que o repositório remoto possui mas que estão faltando no repositório local,
+e Atualiza a referência para a qual os ramos remotos estão apontando.
+
+Git pull(puxar em ingles)
+O comando git pull é usado para buscar e baixar conteúdo de repositórios remotos e 
+fazer a atualização imediata ao repositório local para que os conteúdos sejam iguais.
+(git pull e como se executassemos um git fetch e git merge)
+
+git push(empurrar em ingles)
+é responsável por subir as suas mudanças para um repositório remoto especificado, e atualizar 
+esse remoto para incorporar seus novos commits.
+assim todos os seus amigos podem baixar o seu trabalho do repositório remoto.
+Você pode pensar no git push como um comando para "publicar" o seu trabalho.
+
+pull request (e uma requisicao, solicitacao de alteracao de arquivos no projeto original)- e um recurso específico do 
+itHub. Eles fornecem uma maneira simples e baseada na 
+web de enviar seu trabalho (geralmente chamados de “patches”) para um projeto. É chamado de solicitação pull 
+porque você está pedindo ao projeto para extrair as alterações de sua bifurcação.
+
+abrir alias do git, camminho dev/projects/git-tools/ code gitconfig
+
+git pull upstream master - baixa o "pai" liferay-portal para minha maquina
+git push origin master - envia o liferay-portal para meu repositorio git
+ant all - atualiza todos os comandos do sistema
+
+importante para entender o de cima
+Existem três cópias do repositório Clay que dizem respeito a você. A primeira cópia está localizada em 
+https://github.com/liferay/clay e vamos chamá-la de upstream para abreviar. A segunda cópia está localizada em 
+https://github.com/brianchandotcom/clay e chamaremos essa origem para breve. A terceira cópia está localizada 
+em seu computador em / home / me / dev / projects / clay .
+
+git fetch solutions-raylife - baixa da branch raylife pra minha maquina
+git rebase solutions-raylife - envia o raylife pra minha branch
+gw deplpoy - atualiza so pra meu projeto, nesse caso raylife
+
+quando crio arquivos no meu repositorio git, eles ficam em untracked(nao rastreados)
+Untracked basicamente significa que o Git vê um arquivo que você não tinha no snapshot 
+anterior (commit) e que ainda não foi testado; O Git não começará a incluí-lo em seus 
+instantâneos de commit até que você diga explicitamente para fazer isso.
+
+depois posso dar git add para adicionar arquivos para comitar
+depois posso fazer um commit com  g commit -u 'nome do usuario'
+ou g ci -m "Este é meu primeiro commit." -a
+g log vejo os commits
+
+O master é o branch principal do GIT.
+
+O HEAD é um ponteiro especial que indica qual é o branch atual. Por padrão, o HEAD aponta para o branch principal, 
+o master.
+ o HEAD pode ser desanexado quando dar git checkout com uma hash especifica.
+
+git log --oneline --graph   -   ver commits da branch atual
+git log --oneline --graph --all    -   ver as ramificacoes de todos os commits
+git log --graph --all   -    ver ramificacoes da branch atual
+
+git diff -mudancas antes do commit
+

@@ -1,0 +1,16 @@
+nmcli device wifi list
+nmcli device wifi connect 'nome do wifi' password
+nmcli
+ping localhost
+ping IP de outra maquina
+sudo systemctl start sshd.service
+ssh IP de outra maquina
+exit
+ssh localhost
+ssh-keygen -t rsa -C "endereco de email"
+more <nome da chave>
+sftp 'IP da outra maquina'
+put 'nome do arquivo'
+get 'nome do arquivo'
+exit
+telnet localhost 22

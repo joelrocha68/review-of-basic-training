@@ -1,0 +1,23 @@
+show databases;  -  listar os bancos de dados do mysql
+use 'nome do banco de dados;       -  entrar no banco de dados selecionado
+show tables;     -  listar as tabelas do banco de dados
+create database 'nome do banco de dados;    -  criar banco de dados
+create table 'nome da tabela;  -  criar tabela
+desc 'nome da tabela;   -  descricao da tabela
+drop table 'nome da tabela;     -  excluir tabela
+select * from Author;    -   selecionar um autor no banco de dados
+select * from Author where authorId = 4;   -  selecionar o querto autor
+select * from Author order by name;     -    selecionar em ordem alfabetica
+select name from Author;   -    selecionar so uma coluna especifica
+delete from Author where name = "Judas";   -   deletar um nome da tabela
+select Author.name, count(Book.authorId) from Author inner join Book on Author.authorId = Book.authorId group by Author.authorId;     -  retorna todos os autores e o número de livros
+
+passos pra entrar no banco de dados
+
+baixar e executar uma imagem no docker
+executar o container com o mysql    d exec -it galatians mysql -uroot -p
+show databases;  - mostrar database
+use 'nome da databases;    -   entrar no databases
+show tables;   -  listar tabelas
+create database 'nome do databases;
+drop table 'nome da tabela;     -  excluir tabela
